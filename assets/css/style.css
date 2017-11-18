@@ -22,35 +22,44 @@ body{
     margin-bottom: 30px;
 
 }
+nav .navbar{
+	text-decoration: none;
+    list-style-type: none;
+
+
+}
 
 
 .navbar-header{
 	font-size: 35px;
 	text-shadow: 0px 4px 4px #800002;
-	padding: 10px auto;
-
-}
-.navbar{
-	margin: auto;
+	margin-top: 50px;
+	margin-left: 20px;
 
 }
 
 .navList{
-	text-decoration: none;
-	padding-top: 50px;
-	font-size: 25px;
-
+    margin: 0;
+    padding: 0;
+    float: right;
+    font-size: 25px;
+    margin-top: 50px;
+	margin-right: 20px;
+	display: block;
+	overflow: hidden;
+	
 }
 
-ul{
-	text-align: center;
-
+.items{
+    padding-top: 20px;
 }
 
-li{
-	display: inline-block;
-	text-decoration: none;
-    padding-left: 30px;
+
+li a:hover {
+    background-color: #800002;
+    border-radius: 7px;
+    text-decoration: none;
+    color: white;
 
 }
 
@@ -88,27 +97,27 @@ label{
 
 }
 
-
-
 .button{
-    position:relative;
+    position: relative;
     transition: .5s ease;
-    margin-left: 250px;
     margin-bottom: 25px;
+    margin-left: 270px;
     font-size: 20px;
+
 }
 
 .button2{
-    position:relative;
+    position: relative;
     transition: .5s ease;
     margin-left: 510px;
     margin-bottom: 25px;
     font-size: 20px;
 }
 
-.menu{
-		font-size: 20px;
-		margin: auto;
-		margin-right: 45px;
-
+ul, li .menu{
+    font-size: 20px;
+    text-align: center;
+    margin-right: 50px;
+    list-style-type: none;
+    display: block;
 }

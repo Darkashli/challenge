@@ -1,5 +1,5 @@
 <?php 
-   Class navModel extends CI_Model { 
+   Class NavModel extends CI_Model { 
 	
       public function __construct() {  
          $this->load->database();

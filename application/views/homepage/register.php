@@ -1,7 +1,8 @@
 <h3><?= $title ?></h3>
+<h4>or <a href="<?php echo base_url(); ?>/homepages/login/">Login</a> here</h4><br>
 
-<?php echo validation_errors(); ?>
-<?php echo form_open('homepages/register');  ?>
+<?php echo validation_errors('Failed registration!'); ?>
+<?php echo form_open('homepages/register');  ?><br>
 
 
 <div class="form-group">
@@ -16,23 +17,27 @@
 
 <div class="form-group">
     <label>Username</label>
-    <input type="text" class="form-control" name="username"  placeholder="The Username">
+    <input type="text" class="form-control" name="username"  placeholder="Your username">
+</div>
+
+<div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" name="email"  placeholder="Your email">
 </div>
 
 <div class="form-group">
     <label>Password</label>
-    <input type="password" class="form-control" name="password" placeholder="The Password">
+    <input type="password" class="form-control" name="password" placeholder="Your password">
 </div>
 
 <div class="form-group">
     <label>Confirm Password</label>
-    <input type="password" class="form-control" name="password" placeholder="The Password">
+    <input type="password" class="form-control" name="password2" placeholder="Confirm your password">
 </div>
 
 
 <div class="button">
   <button type="submit" class="btn btn-primary btn-md button button4">Register</button>
-  <button type="submit" class="btn btn-danger btn-md">Login</button>
 </div>
 
 <?php echo form_close(); ?>

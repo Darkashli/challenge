@@ -1,5 +1,5 @@
 <h3><?= $title ?></h3>
-<?php foreach ($drink as $drinks) : ?> 
+  <?php foreach ($drink as $drinks) : ?> 
 	<div class="form-group">
 		
 			<ul class="menu">

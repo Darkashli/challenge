@@ -13,7 +13,7 @@
          return $query->result_array();
             
          }
-             $query = $this->db->get_where('gebruikers', array('slug' => $slug));
+             $query = $this->db->get_where('gebruikers', array('id' => $slug));
          return $query->row_array();
       }
 
@@ -33,6 +33,7 @@
 
         $data = array(
           'gebruikersnaam' => $this->input->post('username'),
+          'email' => $this->input->post('email'),
           'wachtwoord' => $enc_password,
           'rolename' => $this->input->post('function')
         );
@@ -68,4 +69,5 @@
         return $query->result_array();
     }
    } 
+   
 
