@@ -41,6 +41,37 @@
         return $this->db->insert('gebruikers', $data);
       }
 
+      public function check_username_exists($username){
+
+        $query = $this->db->get_where('gebruikers', array('gebruikersnaam' => $username));
+        if (empty($query->row_array())) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+        public function check_email_exists($email){
+
+        $query = $this->db->get_where('gebruikers', array('email' => $email));
+        if (empty($query->row_array())) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      public function login($username, $password){ 
+
+        $result = $this->db->get_where('gebruikers', array("Gebruikersnaam" => $username, "Wachtwoord" => $password));
+
+        if ($result->row()) {
+          return $result->row()->Id;
+        } else {
+          return false;
+        }
+      }
+
       public function delete_post($id){
         $this->db->where('id', $id);
         $this->db->delete('posts');

@@ -22,12 +22,6 @@ body{
     margin-bottom: 30px;
 
 }
-nav .navbar{
-	text-decoration: none;
-    list-style-type: none;
-
-
-}
 
 
 .navbar-header{
@@ -35,6 +29,7 @@ nav .navbar{
 	text-shadow: 0px 4px 4px #800002;
 	margin-top: 50px;
 	margin-left: 20px;
+    text-decoration: none;
 
 }
 
@@ -42,7 +37,7 @@ nav .navbar{
     margin: 0;
     padding: 0;
     float: right;
-    font-size: 25px;
+    font-size: 23px;
     margin-top: 50px;
 	margin-right: 20px;
 	display: block;
@@ -50,30 +45,34 @@ nav .navbar{
 	
 }
 
-.items{
-    padding-top: 20px;
-}
-
 
 li a:hover {
     background-color: #800002;
-    border-radius: 7px;
+    border-radius: 6px;
     text-decoration: none;
     color: white;
+}
+
+li{
+    text-align: right;
+    text-decoration: none;
+    list-style-type: none;
+    padding-bottom: 10px;
+
+
 
 }
 
 p{
 	text-align: center;
 	color: #4C4C4C;
-
-
+    font-size: 16px;
 }
 
 h3{
 	text-align: center;
 	padding-top: 100px;
-	padding-bottom: 25px;
+	padding-bottom: 15px;
 
 }
 
@@ -92,32 +91,15 @@ label{
 
 .form-group{
 	border: thin #800002 solid;
-	width: 400px;
 	text-align: center;
+    margin-bottom: 0px;
+    border-radius: 5px;
+}
 
+.row{
+    margin: auto;
 }
 
 .button{
-    position: relative;
-    transition: .5s ease;
-    margin-bottom: 25px;
-    margin-left: 270px;
-    font-size: 20px;
-
-}
-
-.button2{
-    position: relative;
-    transition: .5s ease;
-    margin-left: 510px;
-    margin-bottom: 25px;
-    font-size: 20px;
-}
-
-ul, li .menu{
-    font-size: 20px;
-    text-align: center;
-    margin-right: 50px;
-    list-style-type: none;
-    display: block;
-}
+    margin-top: 0px;
+    }

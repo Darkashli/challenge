@@ -1,7 +1,7 @@
 
 <div data-role="contact" id="pageone">
 
-	<h3><?= $title2 ?></h3><br>
+	<h3><?= $title2 ?></h3>
     <p>For more information you can call us or <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">send an email</a></p>
     <br>
 
