@@ -65,8 +65,8 @@
 
         $result = $this->db->get_where('gebruikers', array("Gebruikersnaam" => $username, "Wachtwoord" => $password));
 
-        if ($result->row()) {
-          return $result->row()->Id;
+        if ($result->num_rows() == 1) {
+          return $result->row(0)->Id;
         } else {
           return false;
         }

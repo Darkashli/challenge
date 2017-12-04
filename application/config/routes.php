@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['options/update'] = 'options/update';
 $route['homepages/register'] = 'homepages/register';
 $route['homepages/login'] = 'homepages/login';
+$route['homepages/logout'] = 'homepages/logout';
 $route['options'] = 'options/index';
 $route['options/(:any)'] = 'options/view/$1';
 $route['(:any)'] = 'homepages/view/$1';

@@ -15,7 +15,7 @@
   <br>
 
   <div data-role="panel" id="jackyPage"> 
-    <h4>Jacky Vogel</h4>
+    <h4>Jacky</h4>
     <p>Phone number: 212-330-5200</p>
     <p>Address: 350 Fifth Avenue
     <br>New York, NY 10118-3299 USA</p>

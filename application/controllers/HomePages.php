@@ -3,54 +3,50 @@
 
    	public function __construct(){ 
          parent::__construct(); 
-         $this->load->model('user_model');
-         $this->load->library('session');
+         	$this->load->model('user_model');
+       	    $this->load->library('session');
     } 
 
-	 public function view($page = 'register') {
+	public function view($page = 'register') {
 		if (!file_exists(APPPATH. 'views/homepage/' .$page. '.php')) {
 			show_404();
 		}
 
-		$this->load->model('navModel');
+			$this->load->model('navModel');
 		$data = $this->navModel->getNav();
-		$this->load->view('templates/header', array(
+			$this->load->view('templates/header', array(
 		'navData' => $data
 		));
 
-		$this->load->view('homepage/'.$page, array(
+			$this->load->view('homepage/'.$page, array(
 			'title' => 'You have to register here',
 			'title2' => 'Support services',
-			'title3' => 'You have to login here'
-		));
-		$this->load->view('templates/footer');
-
+ 		));
+			$this->load->view('templates/footer');
 	}
 
 	public function register(){
         
-		$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
-		$this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
-	    $this->form_validation->set_rules('password', 'Password', 'required');
-	    $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]', 'required');
-	    $this->form_validation->set_rules('function', 'Function', 'required');
+			$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
+			$this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
+		    $this->form_validation->set_rules('password', 'Password', 'required');
+		    $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]', 'required');
+		    $this->form_validation->set_rules('function', 'Function', 'required');
 
-		
         if ($this->form_validation->run() === FALSE) {
- 
-			$this->load->model('navModel');
-			$data = $this->navModel->getNav();
-			$this->load->view('templates/header', array(
-				'navData' => $data 
-			));
+
+        	$this->load->model('navModel');
+		    $data = $this->navModel->getNav();
+		    $this->load->view('templates/header', array(
+		    'navData' => $data
+		    ));
+	     	
 
 			$this->load->view('homepage/register', array(
 				'functions' => $this->user_model->get_function(),
-				'title' => 'You have to register here',
+				'title' => 'You have to register here'
 
 			));
-			
-			$this->load->view('templates/footer');
 
        } else {
        	    $enc_password = md5($this->input->post('password'));
@@ -62,7 +58,7 @@
 
 	public function check_username_exists($username){ 
 
-		$this->form_validation->set_message('check_username_exists', 'That username is taken! please choose a different one');
+			$this->form_validation->set_message('check_username_exists', 'That username is taken! please choose a different one');
 		if ($this->user_model->check_username_exists($username)) {
 			return true;
 		} else {
@@ -70,9 +66,9 @@
 		}
 	}
 
-		public function check_email_exists($email){ 
+	public function  check_email_exists($email){ 
 		
-		$this->form_validation->set_message('check_email_exists', 'That email is taken! please choose a different one');
+			$this->form_validation->set_message('check_email_exists', 'That email is taken! please choose a different one');
 		if ($this->user_model->check_email_exists($email)) {
 			return true; 
 		} else {
@@ -82,8 +78,8 @@
 
 	public function login(){
         
-		$this->form_validation->set_rules('username', 'Username', 'required');
-	    $this->form_validation->set_rules('password', 'Password', 'required');
+			$this->form_validation->set_rules('username', 'Username', 'required');
+		    $this->form_validation->set_rules('password', 'Password', 'required');
 		
         if ($this->form_validation->run() === FALSE) {
  
@@ -122,6 +118,17 @@
        	    }	       
        }
 	}
-}
+
+	public function logout(){
+
+			$this->session->unset_userdata('logged_in');
+			$this->session->unset_userdata('username');
+			$this->session->unset_userdata('user_id');
+
+			$this->session->set_flashdata('user_loggedout', 'You are now logged out'); 
+	       	redirect('homepages/login');
+       	    }	       
+
+	}
 
 
