@@ -8,3 +8,5 @@
     <label>Your choosen drink</label>
     <input type="button" class="btn btn-success" name="confirm" value="<?php echo $orders['wordgehaald']; ?>">
   </div>
+
+<?php echo form_close(); ?>

@@ -1,9 +1,9 @@
-<?php 
-   Class Option_model extends CI_Model { 
-	
-      public function __construct() {  
+<?php
+   Class Option_model extends CI_Model {
+
+      public function __construct() {
          $this->load->database();
-      } 
+      }
 
       public function get_drink($slug = FALSE){
          if ($slug === FALSE) {
@@ -11,40 +11,27 @@
              $this->db->order_by('id', 'ASC');
              $query = $this->db->get('dranken');
          return $query->result_array();
-            
-         }
-             $query = $this->db->get_where('dranken', array('slug' => $slug));
+
+        }
+        $query = $this->db->get_where('Dranken', array('slug' => $slug));
          return $query->row_array();
       }
 
-      public function confirm($slug = FALSE){
-         if ($slug === FALSE) {
+      // public function confirm($id){
 
-             $this->db->order_by('id', 'ASC');
-             $query = $this->db->get('bestellingen');
-         return $query->result_array();
-            
-         }
-             $query = $this->db->get_where('bestellingen', array('wordgehaald' => $slug));
-         return $query->row_array();
-      }
+           // $data = array(
+             // 'wordgehaald' => $this->input->post('confirm'),
+             // 'user_id' => $id
+           // );
 
-      public function update_order(){
+             // $this->db->set($data);
+             // return this->db->insert('Bestellingen', $data);
 
-        $slug = url_title($this->input->post('id'));
-        $data = array(
-          'wordgehaald' => $this->input->post('confirm'),
-          'slug' => $slug
-        );
-    
-        $this->db->set($data);
-        $this->db->where('id', $this->input->post('id'));
-        return $this->db->update('bestellingen', $data);
-      }
+  // }
+}
 
-       public function delete_option($id){
-        $this->db->where('wordgehaald', $id);
-        $this->db->delete('bestellingen');
-        return true;
-     }
-    }
+       // public function delete_option($id){
+        // $this->db->where('wordgehaald', $id);
+        // $this->db->delete('bestellingen');
+        // return true;
+     // }

@@ -1,3 +1,15 @@
+<ul class="navList">
+	 <?php
+ foreach ($navData as $nav)
+{
+		 if ($nav['navPlace'] == 1)
+ { ?>
+			 <li class="items"><a href="<?= $nav['navLinkUrl'] ?>"><?= $nav['navName'] ?></a></li>
+		 <?php }}
+?>
+</ul>
+</nav>
+
 <h3><?= $title ?></h3>
 <h4>or <a href="<?php echo base_url(); ?>/homepages/login/">Login</a> here</h4><br>
 
@@ -9,7 +21,7 @@
      <div class="form-group">
  	  <label>Function</label>
  	    <select name="function" class="form-control">
- 		  <option></option>
+ 		  <option>select</option>
  		  <option>Admin</option>
  		  <option>Docent</option>
  		  <option>Student</option>
@@ -44,4 +56,3 @@
 </div>
 
 <?php echo form_close(); ?>
-

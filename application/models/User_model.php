@@ -1,32 +1,8 @@
-<?php 
-   Class User_model extends CI_Model { 
-	
-      public function __construct() {  
+<?php
+   Class User_model extends CI_Model {
+
+      public function __construct() {
          $this->load->database();
-      } 
-
-      public function get_user($slug = FALSE){
-         if ($slug === FALSE) {
-
-             $this->db->order_by('id', 'ASC');
-             $query = $this->db->get('gebruikers');
-         return $query->result_array();
-            
-         }
-             $query = $this->db->get_where('gebruikers', array('id' => $slug));
-         return $query->row_array();
-      }
-
-     public function confirm($slug = FALSE){
-         if ($slug === FALSE) {
-
-             $this->db->order_by('id', 'ASC');
-             $query = $this->db->get('bestellingen');
-         return $query->result_array();
-            
-         }
-             $query = $this->db->get_where('bestellingen', array('wordgehaald' => $slug));
-         return $query->row_array();
       }
 
       public function register_user($enc_password){
@@ -61,12 +37,12 @@
         }
       }
 
-      public function login($username, $password){ 
+      public function login($username, $password){
 
         $result = $this->db->get_where('gebruikers', array("Gebruikersnaam" => $username, "Wachtwoord" => $password));
 
         if ($result->num_rows() == 1) {
-          return $result->row(0)->Id;
+          return $result->row(0);
         } else {
           return false;
         }
@@ -79,18 +55,15 @@
      }
 
 
-      public function update_order($slug){
-        $slug = url_title($this->input->post('title'));
-        
+      public function confrim($id){
+
         $data = array(
-          'title' => $this->input->post('title'),
-          'slug' => $slug,
-          'body' => $this->input->post('body'),
-          'category_id' => $this->input->post('category_id')
+          'wordgehaald' => $this->input->post('confirm'),
+          'user_id' => $id
         );
         $this->db->set($data);
-        $this->db->where('id', $this->input->post('id'));
-        return $this->db->update('posts', $data);
+        $this->db->where('user_id', $this->input->post('id'));
+        return $this->db->update('Bestellingen', $data);
       }
 
 
@@ -99,6 +72,4 @@
         $query = $this->db->get('function');
         return $query->result_array();
     }
-   } 
-   
-
+   }

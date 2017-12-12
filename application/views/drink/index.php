@@ -1,5 +1,16 @@
+<ul class="navList">
+   <?php
+ foreach ($navData as $nav)
+{
+     if ($nav['navPlace'] == 0)
+ { ?>
+       <li class="items"><a href="<?= $nav['navLinkUrl'] ?>"><?= $nav['navName'] ?></a></li>
+     <?php }}
+?>
+</ul>
+
 <h3><?= $title ?></h3>
-  <?php foreach ($drink as $drinks) : ?> 
+  <?php foreach ($drink as $drinks) : ?>
 
  <div class="row">
  	<div class="col-md-4 col-md-offset-4">
@@ -12,4 +23,3 @@
     </div>
    </div>
   <?php endforeach; ?>
-
