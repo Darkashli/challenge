@@ -324,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'bcryotpassword';
 
 /*
 |--------------------------------------------------------------------------
@@ -384,7 +384,6 @@ $config['sess_save_path'] = FCPATH . 'application/ci_sessions/';
 $config['sess_match_ip'] = TRUE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
-// /Users/alaa/Sites/challenge/
 
 /*
 |--------------------------------------------------------------------------

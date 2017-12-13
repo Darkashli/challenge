@@ -16,18 +16,6 @@
         $query = $this->db->get_where('Dranken', array('slug' => $slug));
          return $query->row_array();
       }
-
-      // public function confirm($id){
-
-           // $data = array(
-             // 'wordgehaald' => $this->input->post('confirm'),
-             // 'user_id' => $id
-           // );
-
-             // $this->db->set($data);
-             // return this->db->insert('Bestellingen', $data);
-
-  // }
 }
 
        // public function delete_option($id){
