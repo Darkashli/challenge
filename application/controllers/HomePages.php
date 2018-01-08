@@ -84,8 +84,8 @@
 
             $this->load->view('templates/header', array(
             	'navData' => $this->navdata));
-	 $this->load->view('homepage/login', array(
-	 	'title3' => 'You have to sign in here'));
+        	 $this->load->view('homepage/login', array(
+	          	'title3' => 'You have to sign in here'));
             $this->load->view('templates/footer');
 
        } else {
@@ -98,14 +98,14 @@
                $user_role = $user_row->RoleName;
 
        	    if ($user_id) {
-       	   $this->session->set_userdata('user_id', $user_id);
+       	      $this->session->set_userdata('user_id', $user_id);
               $this->session->set_userdata('username', $username);
               $this->session->set_userdata('is_admin',  ($user_role == 'Admin'));
               $this->session->set_userdata('is_student', ($user_role == 'Student'));
               $this->session->set_userdata('is_docent', ($user_role == 'Docent'));   
               $this->session->set_userdata('logged_in', true);
               // retrieve with $this->session->userdata('is_docent');
-       	   $this->session->set_flashdata('user_loggedin', 'You are now successfully logged in');
+       	      $this->session->set_flashdata('user_loggedin', 'You are now successfully logged in');
 	       	redirect('options');
 
        	    } else {
@@ -122,7 +122,17 @@
 			$this->session->unset_userdata('user_id');
 			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
 	       	redirect('homepages/login');
-       	    }
+						 }
+						 
+	public function student(){
+		$this->load->view('templates/header', array('navData' => $this->navdata));
+
+		$this->load->view('homepage/student', array(
+			'title4' => 'Welcome to our student webpage'
+ 		));
+			$this->load->view('templates/footer');
+
+  	}
 	}
 
 	

@@ -67,9 +67,15 @@
       }
 
 
-      public function get_function(){
+      public function get_function() 
+      {
         $this->db->order_by('name');
         $query = $this->db->get('function');
         return $query->result_array();
     }
-   }
+ }
+    
+   
+
+
+

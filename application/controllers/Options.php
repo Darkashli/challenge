@@ -5,6 +5,7 @@ class Options extends CI_Controller {
          parent::__construct();
          $this->load->model('option_model');
 				 $this->load->model('navModel');
+				 $this->load->model('user_model');
 				 $this->navdata = $this->navModel->getNav();
     }
 
@@ -12,9 +13,12 @@ class Options extends CI_Controller {
 
 		 if (!$this->session->userdata('user_loggedin')) {
 			 redirect('homepages/login');
-		 }
+		 } elseif ($this->session->userdata('is_student')){
+		  	redirect('homepages/student');
+		 } 
+		
 
-		 $this->load->view('templates/header', array('navData' => $this->navdata));
+		$this->load->view('templates/header', array('navData' => $this->navdata));
 
 
 		$this->load->view('drink/index', array(

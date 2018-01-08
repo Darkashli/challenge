@@ -8,7 +8,7 @@ body {
  background-repeat: no-repeat;
  background-attachment: fixed;
  background-size: cover;
- background-display: block;
+ display: block;
 }
 
 .container {
