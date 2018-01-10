@@ -2,7 +2,7 @@
 	 <?php
  foreach ($navData as $nav)
 {
-		 if ($nav['navPlace'] == 1)
+		 if ($nav['navPlace'] == 0)
  { ?>
 			 <li class="items"><a href="<?= $nav['navLinkUrl'] ?>"><?= $nav['navName'] ?></a></li>
 		 <?php }}
@@ -14,7 +14,7 @@
 <h4>or <a href="<?php echo base_url(); ?>/homepages/login/">Login</a> here</h4><br>
 
 <?php echo validation_errors(); ?>
-<?php echo form_open('homepages/register');  ?><br>
+<?php echo form_open('homepages/register');  ?>
 
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
@@ -32,6 +32,15 @@
       <label>Username</label>
       <input type="text" class="form-control" name="username"  placeholder="Your username">
     </div>
+
+       <div class="form-group">
+       <label>Gender</label>
+         <select name="gender" class="form-control">
+         <option>select</option>
+         <option>Male</option>
+         <option>Female</option>
+         </select>
+      </div>
 
     <div class="form-group">
       <label>Email</label>

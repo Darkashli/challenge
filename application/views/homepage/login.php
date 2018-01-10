@@ -2,7 +2,7 @@
 	 <?php
  foreach ($navData as $nav)
 {
-		 if ($nav['navPlace'] == 1)
+		 if ($nav['navPlace'] == 0)
  { ?>
 			 <li class="items"><a href="<?= $nav['navLinkUrl'] ?>"><?= $nav['navName'] ?></a></li>
 		 <?php }}

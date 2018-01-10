@@ -11,11 +11,14 @@ class Options extends CI_Controller {
 
 	 public function index() {
 
-		 if (!$this->session->userdata('user_loggedin')) {
-			 redirect('homepages/login');
-		 } elseif ($this->session->userdata('is_student')){
-		  	redirect('homepages/student');
-		 } 
+			    	if ($this->session->userdata('is_student')){
+		      	redirect('homepages/student');
+    	 } 
+
+		
+		//  (!$this->session->userdata('user_loggedin')) {
+			//  redirect('homepages/login');}
+
 		
 
 		$this->load->view('templates/header', array('navData' => $this->navdata));

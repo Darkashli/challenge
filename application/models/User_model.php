@@ -9,6 +9,7 @@
 
         $data = array(
           'gebruikersnaam' => $this->input->post('username'),
+          'gender' => $this->input->post('gender'),
           'email' => $this->input->post('email'),
           'wachtwoord' => $enc_password,
           'rolename' => $this->input->post('function')
@@ -72,6 +73,12 @@
         $this->db->order_by('name');
         $query = $this->db->get('function');
         return $query->result_array();
+    }
+
+    public function get_gender()
+     {  
+       $query = $this->db->get('Gender');
+       return $query->result_array();
     }
  }
     

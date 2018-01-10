@@ -98,6 +98,14 @@ label {
  margin-top: 0px;
 }
 
+input{
+  text-align: center;
+}
+
+option{
+  text-align: center;
+}
+
 .session{
 position: flex;
 height: 5px;

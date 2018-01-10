@@ -4,7 +4,8 @@
    	public function __construct(){
             parent::__construct();
             $this->load->model('user_model');
-            $this->load->library('session');
+						$this->load->library('session');
+						$this->load->library('encryption');
             $this->load->helper("security");
             $this->load->model('navModel');
             $this->navdata = $this->navModel->getNav();
@@ -29,7 +30,8 @@
       redirect('options');
 }
 
-		  $this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
+			$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
+			$this->form_validation->set_rules('gender', 'Gender', 'required');
 		  $this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
 		  $this->form_validation->set_rules('password', 'Password', 'required');
 		  $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]', 'required');
@@ -42,7 +44,8 @@
 
 
 			$this->load->view('homepage/register', array(
-				'functions' => $this->user_model->get_function(),
+				'function' => $this->user_model->get_function(),
+				'gender' => $this->user_model->get_gender(),
 				'title' => 'You have to register here'
 
 			));
@@ -67,7 +70,7 @@
 
 	public function  check_email_exists($email){
 
-			$this->form_validation->set_message('check_email_exists', 'That email is taken! please choose a different one');
+			     $this->form_validation->set_message('check_email_exists', 'That email is taken! please choose a different one');
 		  if ($this->user_model->check_email_exists($email)) {
 			return true;
 		} else {
@@ -77,35 +80,39 @@
 
 	public function login(){
 
-	$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+
+	         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
         if ($this->form_validation->run() === FALSE) {
 
             $this->load->view('templates/header', array(
             	'navData' => $this->navdata));
-        	 $this->load->view('homepage/login', array(
+         	  $this->load->view('homepage/login', array(
 	          	'title3' => 'You have to sign in here'));
             $this->load->view('templates/footer');
 
        } else {
 
-       	    $username = $this->input->post('username');
-       	    $password = md5($this->input->post('password'));
+						$username = $this->input->post('username');
+						$password = md5($this->input->post('password'));
        	    $user_row = $this->user_model->login($username, $password);
             
                $user_id = $user_row->Id;
                $user_role = $user_row->RoleName;
 
        	    if ($user_id) {
-       	      $this->session->set_userdata('user_id', $user_id);
-              $this->session->set_userdata('username', $username);
+							 //$this->session->set_userdata($user_row);
+							 //$name = this->session->userdata("username");
+							 //isset(this->session->userdata("username"));
+							
+							$this->session->set_userdata('user_id', $user_id);
+							$this->session->set_userdata('username', $username);
               $this->session->set_userdata('is_admin',  ($user_role == 'Admin'));
               $this->session->set_userdata('is_student', ($user_role == 'Student'));
               $this->session->set_userdata('is_docent', ($user_role == 'Docent'));   
               $this->session->set_userdata('logged_in', true);
-              // retrieve with $this->session->userdata('is_docent');
-       	      $this->session->set_flashdata('user_loggedin', 'You are now successfully logged in');
+							$this->session->set_flashdata('user_loggedin', 'You are now successfully logged in');
 	       	redirect('options');
 
        	    } else {
@@ -119,6 +126,7 @@
 
 			$this->session->unset_userdata('logged_in');
 			$this->session->unset_userdata('username');
+			$this->session->unset_userdata('user_role');
 			$this->session->unset_userdata('user_id');
 			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
 	       	redirect('homepages/login');

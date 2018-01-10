@@ -1,12 +1,5 @@
 <ul class="navList">
-   <?php
- foreach ($navData as $nav)
-{
-     if ($nav['navPlace'] == 1)
- { ?>
-       <li class="items"><a href="<?= $nav['navLinkUrl'] ?>"><?= $nav['navName'] ?></a></li>
-     <?php }}
-?>
+   <li><a href="<?php echo base_url(); ?>/homepages/register/">Back</a></li><br>
 </ul>
 </nav>
 
