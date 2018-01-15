@@ -39,11 +39,12 @@
       }
 
       public function login($username, $password){
-
-        $result = $this->db->get_where('gebruikers', array("Gebruikersnaam" => $username, "Wachtwoord" => $password));
-
+        
+        $result = $this->db->get_where('gebruikers', array("Gebruikersnaam" => $username));
         if ($result->num_rows() == 1) {
-          return $result->row(0);
+          if(password_verify($password, $result->row(0)->Wachtwoord )){
+            return $result->row(0);}
+          else {return false;}
         } else {
           return false;
         }
@@ -80,7 +81,20 @@
        $query = $this->db->get('Gender');
        return $query->result_array();
     }
- }
+
+
+    public function check_studentnummer_exists($studentnummer){
+
+      $query = $this->db->get_where('studentnummer', array('studentnummer' => $studentnummer));
+      if (empty($query->row_array())) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+    
     
    
 

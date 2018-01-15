@@ -27,7 +27,7 @@
 	public function register(){
 
     if ($this->session->userdata('user_registered')) {
-      redirect('options');
+      redirect('login');
 }
 
 			$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
@@ -41,20 +41,19 @@
 
       $this->load->view('templates/header', array('navData' => $this->navdata));
 
-
-
 			$this->load->view('homepage/register', array(
 				'function' => $this->user_model->get_function(),
 				'gender' => $this->user_model->get_gender(),
 				'title' => 'You have to register here'
-
 			));
 
        } else {
-       	  $enc_password = md5($this->input->post('password'));
+
+					$options = ['cost' => 12];
+       	  $enc_password = password_hash($this->input->post('password'), PASSWORD_BCRYPT, $options);
 	       	$this->user_model->register_user($enc_password);
 	       	$this->session->set_flashdata('user_registered', 'Thanks for your registration');
-	       	redirect('options');
+	       	redirect('homepages/login');
        }
 	}
 
@@ -70,7 +69,7 @@
 
 	public function  check_email_exists($email){
 
-			     $this->form_validation->set_message('check_email_exists', 'That email is taken! please choose a different one');
+      $this->form_validation->set_message('check_email_exists', 'That email is taken! please choose a different one');
 		  if ($this->user_model->check_email_exists($email)) {
 			return true;
 		} else {
@@ -79,7 +78,6 @@
 	}
 
 	public function login(){
-
 
 	         $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
            $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
@@ -95,8 +93,7 @@
        } else {
 
 						$username = $this->input->post('username');
-						$password = md5($this->input->post('password'));
-       	    $user_row = $this->user_model->login($username, $password);
+       	    $user_row = $this->user_model->login($username,$this->input->post('password'));
             
                $user_id = $user_row->Id;
                $user_role = $user_row->RoleName;
@@ -133,14 +130,34 @@
 						 }
 						 
 	public function student(){
+
+		$this->form_validation->set_rules('studentnummer', 'Studentnummer', 'required|callback_check_studentnummer_exists');
+		
+		if ($this->form_validation->run() === FALSE) {
+
 		$this->load->view('templates/header', array('navData' => $this->navdata));
 
 		$this->load->view('homepage/student', array(
-			'title4' => 'Welcome to our student webpage'
+			'title4' => 'Welcome to our student webpage',
+			'title5' => 'You have to register your studentnummer hier'
  		));
 			$this->load->view('templates/footer');
 
-  	}
+  	} else {
+			$this->session->set_flashdata('studentnummer_registered', 'You have been successfully registered your studentnummer');
+	       	redirect('options');
+		}
 	}
+
+	public function check_studentnummer_exists($studentnummer){
+
+		$this->form_validation->set_message('check_studentnummer_exists', 'That studentnummer is not correct! please choose a different one');
+	if ($this->user_model->check_studentnummer_exists($studentnummer)) {
+		return true;
+	} else {
+		return false;
+	}
+ }
+}
 
 	

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4 col-md-offset-2">
+  <div class="col-md-3 col-md-offset-2">
 
     <h3><?php echo $drink['Drinknaam']; ?></h3>
      <br>
@@ -14,4 +14,4 @@
     <?php echo form_close(); ?>
     </div>
    </div>
- </div>
+</div>
