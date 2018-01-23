@@ -45,8 +45,8 @@
        {
            $this->load->view('templates/header', ['navData' => $this->navdata]);
            $this->load->view('homepage/plan', [
-       'title6' => 'This is the scheduale for this week',
-       'plans' => $this->student_model->get_plan()
+           'title6' => 'This is the scheduale for this week',
+           'plan' => $this->student_model->get_plan()
    ]);
            $this->load->view('templates/footer');
        }

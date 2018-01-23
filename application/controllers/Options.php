@@ -13,7 +13,7 @@ class Options extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('is_student')) {
-            redirect('students/index');
+            redirect('students');
         }
 
         $this->load->view('templates/header', ['navData' => $this->navdata]);

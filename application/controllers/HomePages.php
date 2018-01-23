@@ -20,7 +20,7 @@
            $this->load->view('templates/header', ['navData' => $this->navdata]);
            $this->load->view('homepage/' . $page, [
             'title' => 'You have to register here',
-            'title2' => 'Support services'
+            'title2' => 'Support services',
         ]);
            $this->load->view('templates/footer');
        }

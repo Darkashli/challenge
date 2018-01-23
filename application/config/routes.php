@@ -2,17 +2,20 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 // $route['admins'] = 'admins/index';
-$route['students/plan'] = 'students/plan';
 $route['students'] = 'students/index';
-$route['students/(:any)'] = 'students/$1';
+$route['default_controller'] = 'homepages/view';
 $route['homepages/login'] = 'homepages/login';
-$route['options/update'] = 'options/update';
 $route['homepages/register'] = 'homepages/register';
 $route['homepages/logout'] = 'homepages/logout';
+$route['contact'] = 'homepages/view/contact';
+
+$route['students/plan'] = 'students/plan';
+$route['students/(:any)'] = 'students/view/$1';
+$route['options/update'] = 'options/update';
+
 $route['options'] = 'options/index';
 $route['options/(:any)'] = 'options/view/$1';
-$route['(:any)'] = 'homepages/view/$1';
-$route['default_controller'] = 'homepages/view';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
 // $route['sessionex'] = 'Session_Controller';
+// $route['homepages(:any)'] = 'homepages/view/$1';   // catch-all:koffieapparaat.dev/iets  ->  koffieapparaat.dev/homepages/view/iets

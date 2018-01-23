@@ -1,7 +1,3 @@
-<h3 class="title3">
-  <?= $title6 ?>
-</h3>
-
 <ul class="navList">
   <?php
  foreach ($navData as $nav) {
@@ -31,6 +27,11 @@
  }
 ?>
 </ul>
+<br>
+<br>
+<h3 class="title3">
+  <?= $title6 ?>
+</h3>
 <br>
 
 <?php foreach ($plan as $plans) : ?>
