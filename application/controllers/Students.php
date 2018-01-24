@@ -14,7 +14,7 @@
 
        public function index()
        {
-           $this->form_validation->set_rules('studentnummer', 'Studentnummer', 'required|callback_check_studentnummer_exists');
+           $this->form_validation->set_rules('studentnummer', 'Studentnummer', 'required|callback_check_studentnummer_exists|exact_length[6]');
 
            if ($this->form_validation->run() === false) {
                $this->load->view('templates/header', ['navData' => $this->navdata]);
@@ -27,7 +27,7 @@
                $studentnummer = $this->input->post('studentnummer');
                $this->student_model->register_studentnummer($studentnummer);
                $this->session->set_flashdata('studentnummer_registered', 'You have been successfully registered your student number');
-               redirect('plan');
+               redirect('students/plan');
            }
        }
 

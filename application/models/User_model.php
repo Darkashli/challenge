@@ -9,10 +9,10 @@
        public function register_user($enc_password)
        {
            $data = [
-          'gebruikersnaam' => $this->input->post('username'),
+          'gebruikersnaam' => $this->security->xss_clean($this->input->post('username')),
           'gender' => $this->input->post('gender'),
-          'email' => $this->input->post('email'),
-          'wachtwoord' => $enc_password,
+          'email' => $this->input->security->xss_clean($this->input->post('email')),
+          'wachtwoord' => $this->security->xss_clean($enc_password),
           'rolename' => $this->input->post('function')
         ];
 
