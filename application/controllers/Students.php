@@ -14,7 +14,10 @@
 
        public function index()
        {
-           $this->form_validation->set_rules('studentnummer', 'Studentnummer', 'required|callback_check_studentnummer_exists|exact_length[6]');
+           if ($this->session->userdata('is_student')) {
+               redirect('students/plan');
+           }
+           $this->form_validation->set_rules('studentnummer', 'Studentnummer', 'required|callback_check_studentnummer_exists|exact_length[6]|alpha_numeric');
 
            if ($this->form_validation->run() === false) {
                $this->load->view('templates/header', ['navData' => $this->navdata]);

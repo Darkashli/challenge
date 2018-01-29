@@ -1,10 +1,10 @@
-<ul class="navList">
+<ul class="navbar-nav">
   <?php
  foreach ($navData as $nav) {
      if ($nav['navPlace'] == 0) {
          ?>
-    <li class="items">
-      <a href="<?= $nav['navLinkUrl'] ?>">
+    <li class="nav-item">
+      <a class="nav-link" href="<?= $nav['navLinkUrl'] ?>">
         <?= $nav['navName'] ?>
       </a>
     </li>
@@ -19,7 +19,7 @@
   <?= $title ?>
 </h3>
 <h4>or
-  <a href="<?php echo base_url(); ?>/homepages/login/">Login</a> here</h4>
+  <a class="nav-link" href="<?php echo base_url(); ?>/homepages/login/">login</a> here</h4>
 <br>
 
 <?php echo validation_errors(); ?>
