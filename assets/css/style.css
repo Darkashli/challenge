@@ -73,10 +73,13 @@ h4 {
 
 label {
  font-size: 20px;
- padding: 3px auto;
  color: #4C4C4C;
 }
 
+a.nav-link{
+  font-size: 20px;
+
+}
 .form-group {
  border: thin #800002 solid;
  text-align: center;

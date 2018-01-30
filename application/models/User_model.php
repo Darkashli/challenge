@@ -11,7 +11,7 @@
            $data = [
           'gebruikersnaam' => $this->security->xss_clean($this->input->post('username')),
           'gender' => $this->input->post('gender'),
-          'email' => $this->input->security->xss_clean($this->input->post('email')),
+          'email' => $this->input->post('email'),
           'wachtwoord' => $this->security->xss_clean($enc_password),
           'rolename' => $this->input->post('function')
         ];

@@ -52,7 +52,7 @@
     </div>
 
     <div class="button">
-      <button type="submit" class="btn btn-primary btn-block btn-lg">Register</button>
+      <button type="submit" class="btn btn-primary btn-block btn-md">Register</button>
     </div>
   </div>
 </div>

@@ -12,7 +12,7 @@
     <?= $title2 ?>
   </h3>
   <p>For more information you can call us or
-    <a class="nav-link" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">send an email</a>
+    <a class="nav-link badge badge-pill badge-primary" href="mailto:someone@example.com?Subject=Hello%20again" target="_top">send an email</a>
   </p>
   <br>
 

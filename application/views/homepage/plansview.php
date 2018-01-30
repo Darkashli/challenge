@@ -41,7 +41,7 @@
   <div class="col-md-4 col-md-offset-4">
     <div class="button">
       <?php echo form_open('students/plan'); ?>
-      <input type="submit" value="Back" class="btn btn-danger btn-block">
+      <input type="submit" value="Back" class="btn btn-danger btn-block btn-md">
       <?php echo form_close(); ?>
     </div>
   </div>

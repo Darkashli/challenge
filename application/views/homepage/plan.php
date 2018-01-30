@@ -42,7 +42,7 @@
         <?php echo $plans['subject']; ?>
       </label>
       <div class="button">
-        <a class="btn btn-primary btn-block" href="<?php echo site_url('/students/' . $plans['slug']); ?>">More info</a>
+        <a class="btn btn-primary btn-block btn-md" href="<?php echo site_url('/students/' . $plans['slug']); ?>">More info</a>
       </div>
     </div>
   </div>

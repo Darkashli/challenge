@@ -19,7 +19,7 @@
   <?= $title3 ?>
 </h3>
 <h4>or
-  <a class="nav-link" href="<?php echo base_url(); ?>/homepages/register/">register</a> here</h4>
+  <a class="nav-link badge badge-pill badge-primary" href="<?php echo base_url(); ?>/homepages/register/">register</a> here</h4>
 <br>
 
 <?php echo validation_errors(); ?>
@@ -42,7 +42,7 @@
 
 
     <div class="button">
-      <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
+      <button type="submit" class="btn btn-primary btn-block btn-md">Login</button>
     </div>
     <br>
 
