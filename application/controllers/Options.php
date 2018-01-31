@@ -42,7 +42,7 @@ class Options extends CI_Controller
 
     public function update()
     {
-        $this->users_model->confirm($id);
+        $this->option_model->confirm();
         redirect('homepages');
     }
 

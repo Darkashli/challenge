@@ -1,10 +1,10 @@
-<ul class="navList">
+<ul class="navbar-nav">
   <?php
  foreach ($navData as $nav) {
      if ($nav['navPlace'] == 0) {
          ?>
-    <li class="items">
-      <a href="<?= $nav['navLinkUrl'] ?>">
+    <li class="nav-item">
+      <a class="nav-link" href="<?= $nav['navLinkUrl'] ?>">
         <?= $nav['navName'] ?>
       </a>
     </li>
@@ -17,8 +17,8 @@
  foreach ($navData as $nav) {
      if ($nav['navPlace'] == 1) {
          ?>
-        <li class="items">
-          <a href="<?= $nav['navLinkUrl'] ?>">
+        <li class="nav-item">
+          <a class="nav-link" href="<?= $nav['navLinkUrl'] ?>">
             <?= $nav['navName'] ?>
           </a>
         </li>

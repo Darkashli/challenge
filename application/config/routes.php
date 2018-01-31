@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 // $route['admins'] = 'admins/index';
+$route['options/update'] = 'options/update';
 $route['students'] = 'students/index';
 $route['default_controller'] = 'homepages/view';
 $route['homepages/login'] = 'homepages/login';
@@ -11,7 +12,6 @@ $route['contact'] = 'homepages/view/contact';
 
 $route['students/plan'] = 'students/plan';
 $route['students/(:any)'] = 'students/view/$1';
-$route['options/update'] = 'options/update';
 
 $route['options'] = 'options/index';
 $route['options/(:any)'] = 'options/view/$1';

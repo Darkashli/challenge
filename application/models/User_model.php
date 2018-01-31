@@ -60,11 +60,10 @@
            return true;
        }
 
-       public function confrim($id)
+       public function confrim()
        {
            $data = [
-          'wordgehaald' => $this->input->post('confirm'),
-          'user_id' => $id
+          'wordgehaald' => $this->input->post('confirm')
         ];
            $this->db->set($data);
            $this->db->where('user_id', $this->input->post('id'));

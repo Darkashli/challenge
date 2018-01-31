@@ -30,6 +30,7 @@
            if ($this->session->userdata('user_registered')) {
                redirect('login');
            }
+
            $this->form_validation->set_rules('username', 'Username', 'trim|required|callback_check_username_exists|min_length[6]|max_length[15]|xss_clean');
            $this->form_validation->set_rules('gender', 'Gender', 'required');
            $this->form_validation->set_rules('email', 'Email', 'trim|required|callback_check_email_exists|xss_clean');

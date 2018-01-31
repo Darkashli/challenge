@@ -73,6 +73,7 @@ h4 {
 
 label {
  font-size: 20px;
+ margin-top: 5px;
  color: #4C4C4C;
 }
 
@@ -108,3 +109,5 @@ position: flex;
 height: 5px;
 width: 35%;
 }
+
+
