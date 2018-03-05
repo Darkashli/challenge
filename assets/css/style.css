@@ -1,6 +1,6 @@
 * {
  margin: auto;
- font-family: "Times New Roman";
+ font-family: "Times New Roman", sans-serif;
 }
 
 body {
@@ -110,4 +110,4 @@ height: 5px;
 width: 35%;
 }
 
-
+/* Here is a style file */
